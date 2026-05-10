@@ -7,6 +7,7 @@ from src.train import train_shard
 from src.config import S, R
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Using device: {device}")
 
 # reproducibility
 torch.manual_seed(42)

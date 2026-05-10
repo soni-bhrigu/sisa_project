@@ -1,1 +1,5 @@
 sisa_env
+\pycache__/
+src/__pycache__/
+*.pyc
+.vscode/

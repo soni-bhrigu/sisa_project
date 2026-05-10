@@ -3,6 +3,7 @@ from src.dataset import get_mnist
 from src.unlearn import unlearn
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Using device: {device}")
 
 dataset = get_mnist()
 
