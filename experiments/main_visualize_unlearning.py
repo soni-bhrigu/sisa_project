@@ -20,6 +20,8 @@ from src.unlearn_digit import (
 )
 
 from src.config import (
+    TARGET_SHARD,
+    DIGIT,
     R,
     BASE_MODEL_DIR,
     UNLEARN_SHARDED_MODEL_DIR
@@ -40,8 +42,8 @@ mapping = torch.load(
 
 shard_slices = mapping["shard_slices"]
 
-digit = 5
-target_shard = 0
+digit = DIGIT
+target_shard = TARGET_SHARD
 
 
 # ---------------- FIND SAMPLE IMAGE ----------------
@@ -84,13 +86,13 @@ model_before.load_state_dict(
 
 # ---------------- UNLEARN ----------------
 
-unlearn_digit_from_shard(
-    target_shard,
-    digit,
-    dataset,
-    shard_slices,
-    device
-)
+# unlearn_digit_from_shard(
+#     target_shard,
+#     digit,
+#     dataset,
+#     shard_slices,
+#     device
+# )
 
 
 # ---------------- AFTER MODEL ----------------
@@ -119,7 +121,10 @@ model_after.load_state_dict(
 # ---------------- VISUALIZATION ----------------
 
 plt.figure(figsize=(12, 4))
-
+plt.suptitle(
+    f"Unlearning effect when using single shard to predict digit {digit}",
+    y=0.99
+)
 
 # ORIGINAL IMAGE
 plt.subplot(1, 3, 1)

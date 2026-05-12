@@ -19,6 +19,8 @@ from src.unlearn_digit import (
 )
 
 from src.config import (
+    TARGET_SHARD,
+    DIGIT,
     R,
     BASE_MODEL_DIR,
     UNLEARN_SHARDED_MODEL_DIR
@@ -47,9 +49,9 @@ shard_slices = mapping["shard_slices"]
 
 # ---------------- EXPERIMENT CONFIG ----------------
 
-digit = 5
+digit = DIGIT
 
-target_shard = 0
+target_shard = TARGET_SHARD
 
 
 # ---------------- LOAD BASE MODEL ----------------

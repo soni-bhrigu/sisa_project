@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 
 from src.dataset import get_mnist
 
+from src.config import DIGIT, TARGET_SHARD
+
 from src.aggregation import (
     ensemble_predict
 )
@@ -32,8 +34,8 @@ mapping = torch.load(
 
 shard_slices = mapping["shard_slices"]
 
-digit = 5
-target_shard = 0
+digit = DIGIT
+target_shard = TARGET_SHARD
 
 
 # ---------------- FIND DIGIT SAMPLE ----------------
@@ -70,13 +72,13 @@ print(f"Confidence: {conf_before:.4f}")
 
 # ---------------- UNLEARN ONE SHARD ----------------
 
-unlearn_digit_from_shard(
-    target_shard,
-    digit,
-    dataset,
-    shard_slices,
-    device
-)
+# unlearn_digit_from_shard(
+#     target_shard,
+#     digit,
+#     dataset,
+#     shard_slices,
+#     device
+# )
 
 
 # ---------------- AFTER ----------------
@@ -99,6 +101,10 @@ print(f"Confidence: {conf_after:.4f}")
 # ---------------- VISUALIZATION ----------------
 
 plt.figure(figsize=(12, 4))
+plt.suptitle(
+    f"Unlearning effect when using all shards to predict digit {digit}",
+    y=0.99
+)
 
 
 # IMAGE

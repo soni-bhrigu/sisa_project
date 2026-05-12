@@ -16,6 +16,7 @@ from src.config import (
     BATCH_SIZE,
     EPOCHS_PER_SLICE,
     LEARNING_RATE,
+    SLICE_NO,
     R
 )
 
@@ -40,7 +41,7 @@ def unlearn_digit_from_shard(shard_id, digit, dataset, shard_slices, device):
         torch.load(
             f"{BASE_MODEL_DIR}/"
             f"shard_{shard_id}/"
-            f"slice_{0}.pt"
+            f"slice_{SLICE_NO}.pt"
         )
     )
 

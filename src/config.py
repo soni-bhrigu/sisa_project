@@ -1,5 +1,11 @@
 # src/config.py
 
+# ----------------- UNLEARNING CONFIG ----------------
+
+DIGIT = 3      # digit to unlearn
+TARGET_SHARD = 2   # shard containing the digit to unlearn
+SLICE_NO = 0        # slice number to start unlearning from (0-indexed)
+
 # ---------------- SISA CONFIG ----------------
 
 S = 5          # number of shards
