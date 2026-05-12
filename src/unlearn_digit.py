@@ -40,7 +40,7 @@ def unlearn_digit_from_shard(shard_id, digit, dataset, shard_slices, device):
         torch.load(
             f"{BASE_MODEL_DIR}/"
             f"shard_{shard_id}/"
-            f"slice_{R - 1}.pt"
+            f"slice_{0}.pt"
         )
     )
 
